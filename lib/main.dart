@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
           ),
           backgroundColor: Color.fromARGB(255, 236, 172, 232),
         ),
+        backgroundColor: Color.fromARGB(255, 245, 226, 244),
         body: LedDisplay(),
       ),
     );
@@ -57,9 +58,16 @@ class _LedDisplayState extends State<LedDisplay> {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           IconButton(
-            icon: Icon(
-              Icons.arrow_drop_up,
-              size: 80,
+            icon: Container(
+              decoration: ShapeDecoration(
+                shape: CircleBorder(),
+                color: Color.fromARGB(255, 236, 172, 232),
+              ),
+              child: Icon(
+                Icons.arrow_drop_up,
+                size: 80,
+                //color: Colors.white, // Set the color of the arrow icon
+              ),
             ),
             onPressed: _decrementNumber,
           ),
@@ -84,11 +92,18 @@ class _LedDisplayState extends State<LedDisplay> {
             ),
           ),
           IconButton(
-            icon: Icon(
-              Icons.arrow_drop_down,
-              size: 80,
+            icon: Container(
+              decoration: ShapeDecoration(
+                shape: CircleBorder(),
+                color: Color.fromARGB(255, 236, 172, 232),
+              ),
+              child: Icon(
+                Icons.arrow_drop_down,
+                size: 80,
+                //color: Colors.white, // Set the color of the arrow icon
+              ),
             ),
-            onPressed: _incrementNumber,
+            onPressed: _decrementNumber,
           ),
         ],
       ),
