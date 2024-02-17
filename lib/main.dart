@@ -57,7 +57,7 @@ class _LedDisplayState extends State<LedDisplay> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Row(
+        /*Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             IconButton(
@@ -74,6 +74,22 @@ class _LedDisplayState extends State<LedDisplay> {
               onPressed: _incrementNumber,
             ),
           ],
+        ),*/
+        IconButton(
+          icon: Icon(Icons.remove),
+          onPressed: _decrementNumber,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            _buildDigit(_number ~/ 10), // Tens digit
+            SizedBox(width: 16),
+            _buildDigit(_number % 10), // Ones digit
+          ],
+        ),
+        IconButton(
+          icon: Icon(Icons.add),
+          onPressed: _incrementNumber,
         ),
       ],
     );
@@ -116,74 +132,104 @@ class _LedDisplayState extends State<LedDisplay> {
     // Patterns for each digit
     [
       // 0
-      [1, 1, 1, 1, 1],
+      [0, 1, 1, 1, 0],
       [1, 0, 0, 0, 1],
       [1, 0, 0, 0, 1],
       [1, 0, 0, 0, 1],
       [1, 0, 0, 0, 1],
       [1, 0, 0, 0, 1],
-      [1, 1, 1, 1, 1],
+      [0, 1, 1, 1, 0],
     ],
     [
       // 1
       [0, 0, 1, 0, 0],
       [0, 1, 1, 0, 0],
-      [1, 0, 1, 0, 0],
       [0, 0, 1, 0, 0],
       [0, 0, 1, 0, 0],
       [0, 0, 1, 0, 0],
-      [1, 1, 1, 1, 1],
+      [0, 0, 1, 0, 0],
+      [0, 1, 1, 1, 0],
     ],
     // Add patterns for digits 2 through 9 similarly
     // Patterns for digit 2
     [
-      [1, 1, 1, 1, 1],
+      [0, 1, 1, 1, 0],
+      [1, 0, 0, 0, 1],
       [0, 0, 0, 0, 1],
-      [0, 0, 0, 0, 1],
-      [1, 1, 1, 1, 1],
-      [1, 0, 0, 0, 0],
-      [1, 0, 0, 0, 0],
+      [0, 0, 0, 1, 0],
+      [0, 0, 1, 0, 0],
+      [0, 1, 0, 0, 0],
       [1, 1, 1, 1, 1],
     ],
     // Patterns for digit 3
     [
-      [1, 1, 1, 1, 1],
+      [0, 1, 1, 1, 0],
+      [1, 0, 0, 0, 1],
       [0, 0, 0, 0, 1],
+      [0, 1, 1, 1, 0],
       [0, 0, 0, 0, 1],
-      [1, 1, 1, 1, 1],
-      [0, 0, 0, 0, 1],
-      [0, 0, 0, 0, 1],
-      [1, 1, 1, 1, 1],
+      [1, 0, 0, 0, 1],
+      [0, 1, 1, 1, 0],
     ],
     // Patterns for digit 4
     [
-      [1, 0, 0, 0, 1],
-      [1, 0, 0, 0, 1],
-      [1, 0, 0, 0, 1],
+      [0, 0, 0, 1, 0],
+      [0, 0, 1, 1, 0],
+      [0, 1, 0, 1, 0],
+      [1, 0, 0, 1, 0],
       [1, 1, 1, 1, 1],
-      [0, 0, 0, 0, 1],
-      [0, 0, 0, 0, 1],
-      [0, 0, 0, 0, 1],
+      [0, 0, 0, 1, 0],
+      [0, 0, 0, 1, 0],
     ],
     // Patterns for digit 5
     [
       [1, 1, 1, 1, 1],
       [1, 0, 0, 0, 0],
-      [1, 0, 0, 0, 0],
-      [1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 0],
       [0, 0, 0, 0, 1],
       [0, 0, 0, 0, 1],
-      [1, 1, 1, 1, 1],
+      [1, 0, 0, 0, 1],
+      [0, 1, 1, 1, 0],
     ],
     // Patterns for digit 6
     [
-      [1, 1, 1, 1, 1],
+      [0, 1, 1, 1, 0],
+      [1, 0, 0, 0, 1],
       [1, 0, 0, 0, 0],
-      [1, 0, 0, 0, 0],
-      [1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 0],
       [1, 0, 0, 0, 1],
       [1, 0, 0, 0, 1],
+      [0, 1, 1, 1, 0],
+    ],
+    // Digit 7
+    [
       [1, 1, 1, 1, 1],
+      [0, 0, 0, 0, 1],
+      [0, 0, 0, 1, 0],
+      [0, 0, 1, 0, 0],
+      [0, 1, 0, 0, 0],
+      [0, 1, 0, 0, 0],
+      [0, 1, 0, 0, 0],
+    ],
+    // Digit 8
+    [
+      [0, 1, 1, 1, 0],
+      [1, 0, 0, 0, 1],
+      [1, 0, 0, 0, 1],
+      [0, 1, 1, 1, 0],
+      [1, 0, 0, 0, 1],
+      [1, 0, 0, 0, 1],
+      [0, 1, 1, 1, 0],
+    ],
+    // Digit 9
+    [
+      [0, 1, 1, 1, 0],
+      [1, 0, 0, 0, 1],
+      [1, 0, 0, 0, 1],
+      [0, 1, 1, 1, 1],
+      [0, 0, 0, 0, 1],
+      [1, 0, 0, 0, 1],
+      [0, 1, 1, 1, 0],
     ]
   ];
 }
