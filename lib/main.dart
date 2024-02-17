@@ -10,7 +10,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('LED Matrix Display'),
+          centerTitle: true,
+          title: Text('LED MATRIX'),
         ),
         body: Center(
           child: Column(
@@ -56,29 +57,13 @@ class _LedDisplayState extends State<LedDisplay> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      //mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        /*Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            IconButton(
-              icon: Icon(Icons.remove),
-              onPressed: _decrementNumber,
-            ),
-            SizedBox(width: 16),
-            _buildDigit(_number ~/ 10), // Tens digit
-            SizedBox(width: 16),
-            _buildDigit(_number % 10), // Ones digit
-            SizedBox(width: 16),
-            IconButton(
-              icon: Icon(Icons.add),
-              onPressed: _incrementNumber,
-            ),
-          ],
-        ),*/
         IconButton(
           icon: Icon(Icons.remove),
           onPressed: _decrementNumber,
         ),
+        SizedBox(height: 50),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -87,6 +72,7 @@ class _LedDisplayState extends State<LedDisplay> {
             _buildDigit(_number % 10), // Ones digit
           ],
         ),
+        SizedBox(height: 50),
         IconButton(
           icon: Icon(Icons.add),
           onPressed: _incrementNumber,
