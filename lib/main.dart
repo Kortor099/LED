@@ -54,6 +54,7 @@ class _LedDisplayState extends State<LedDisplay> {
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         IconButton(
           icon: Icon(Icons.remove),
@@ -62,10 +63,11 @@ class _LedDisplayState extends State<LedDisplay> {
         Container(
           // Wrap LED display with Container
           padding: EdgeInsets.all(16), // Add padding for space
+          width: 300,
+          height: 215,
           decoration: BoxDecoration(
             border:
-                Border.all(color: Colors.black, width: 2), // Border properties
-            borderRadius: BorderRadius.circular(8),
+                Border.all(color: Colors.black, width: 5), // Border properties
             color: Colors.purple[200],
           ),
           child: Row(
