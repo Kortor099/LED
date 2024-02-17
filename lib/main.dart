@@ -11,7 +11,8 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: Text('LED MATRIX'),
+          title: Text('CP-SU LED MATRIX'),
+          backgroundColor: Color.fromARGB(255, 236, 172, 232),
         ),
         body: LedDisplay(),
       ),
