@@ -54,29 +54,32 @@ class _LedDisplayState extends State<LedDisplay> {
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
-      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         IconButton(
           icon: Icon(Icons.remove),
           onPressed: _decrementNumber,
         ),
-        Container(
-          // Wrap LED display with Container
-          padding: EdgeInsets.all(16), // Add padding for space
-          width: 300,
-          height: 215,
-          decoration: BoxDecoration(
-            border:
-                Border.all(color: Colors.black, width: 5), // Border properties
-            color: Colors.purple[200],
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              _buildDigit(_number ~/ 10), // Tens digit
-              SizedBox(width: 16),
-              _buildDigit(_number % 10), // Ones digit
-            ],
+        Expanded(
+          child: Center(
+            child: Container(
+              // Wrap LED display with Container
+              padding: EdgeInsets.all(16), // Add padding for space
+              width: 300,
+              height: 215,
+              decoration: BoxDecoration(
+                border: Border.all(
+                    color: Colors.black, width: 5), // Border properties
+                color: Colors.purple[200],
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  _buildDigit(_number ~/ 10), // Tens digit
+                  SizedBox(width: 16),
+                  _buildDigit(_number % 10), // Ones digit
+                ],
+              ),
+            ),
           ),
         ),
         IconButton(
