@@ -52,41 +52,40 @@ class _LedDisplayState extends State<LedDisplay> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: [
-        IconButton(
-          icon: Icon(Icons.remove),
-          onPressed: _decrementNumber,
-        ),
-        Expanded(
-          child: Center(
-            child: Container(
-              // Wrap LED display with Container
-              padding: EdgeInsets.all(16), // Add padding for space
-              width: 300,
-              height: 215,
-              decoration: BoxDecoration(
-                border: Border.all(
-                    color: Colors.black, width: 5), // Border properties
-                color: Colors.purple[200],
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  _buildDigit(_number ~/ 10), // Tens digit
-                  SizedBox(width: 16),
-                  _buildDigit(_number % 10), // Ones digit
-                ],
-              ),
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          IconButton(
+            icon: Icon(Icons.remove),
+            onPressed: _decrementNumber,
+          ),
+          Container(
+            // Wrap LED display with Container
+            padding: EdgeInsets.all(16), // Add padding for space
+            width: 300,
+            height: 215,
+            decoration: BoxDecoration(
+              border: Border.all(
+                  color: Color.fromARGB(255, 236, 172, 232),
+                  width: ), // Border properties
+              color: Color.fromARGB(255, 26, 26, 26),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                _buildDigit(_number ~/ 10), // Tens digit
+                SizedBox(width: 16),
+                _buildDigit(_number % 10), // Ones digit
+              ],
             ),
           ),
-        ),
-        IconButton(
-          icon: Icon(Icons.add),
-          onPressed: _incrementNumber,
-        ),
-      ],
+          IconButton(
+            icon: Icon(Icons.add),
+            onPressed: _incrementNumber,
+          ),
+        ],
+      ),
     );
   }
 
@@ -111,7 +110,9 @@ class _LedDisplayState extends State<LedDisplay> {
   }
 
   Widget _buildDot(int pattern) {
-    final color = pattern == 1 ? Colors.red : Colors.grey[300];
+    final color = pattern == 1
+        ? Color.fromARGB(255, 18, 243, 228)
+        : Color.fromARGB(255, 57, 56, 56);
     return Container(
       width: 20,
       height: 20,
