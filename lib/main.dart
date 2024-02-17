@@ -13,6 +13,9 @@ class MyApp extends StatelessWidget {
           centerTitle: true,
           title: Text(
             'CP-SU LED MATRIX',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+            ),
           ),
           backgroundColor: Color.fromARGB(255, 236, 172, 232),
         ),
