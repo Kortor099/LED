@@ -57,7 +57,10 @@ class _LedDisplayState extends State<LedDisplay> {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           IconButton(
-            icon: Icon(Icons.remove),
+            icon: Icon(
+              Icons.arrow_drop_up,
+              size: 80,
+            ),
             onPressed: _decrementNumber,
           ),
           Container(
@@ -81,7 +84,10 @@ class _LedDisplayState extends State<LedDisplay> {
             ),
           ),
           IconButton(
-            icon: Icon(Icons.add),
+            icon: Icon(
+              Icons.arrow_drop_down,
+              size: 80,
+            ),
             onPressed: _incrementNumber,
           ),
         ],
