@@ -62,13 +62,13 @@ class _LedDisplayState extends State<LedDisplay> {
           ),
           Container(
             // Wrap LED display with Container
-            padding: EdgeInsets.all(16), // Add padding for space
-            width: 300,
-            height: 215,
+            padding: EdgeInsets.all(50), // Add padding for space
+            width: 400,
+            height: 300,
             decoration: BoxDecoration(
               border: Border.all(
                   color: Color.fromARGB(255, 236, 172, 232),
-                  width: ), // Border properties
+                  width: 13), // Border properties
               color: Color.fromARGB(255, 26, 26, 26),
             ),
             child: Row(
