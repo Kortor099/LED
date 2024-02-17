@@ -13,14 +13,7 @@ class MyApp extends StatelessWidget {
           centerTitle: true,
           title: Text('LED MATRIX'),
         ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              LedDisplay(),
-            ],
-          ),
-        ),
+        body: LedDisplay(),
       ),
     );
   }
@@ -57,13 +50,13 @@ class _LedDisplayState extends State<LedDisplay> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      //mainAxisAlignment: MainAxisAlignment.spaceAround,
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         IconButton(
           icon: Icon(Icons.remove),
           onPressed: _decrementNumber,
         ),
-        SizedBox(height: 50),
+        //SizedBox(height: 50),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -72,7 +65,7 @@ class _LedDisplayState extends State<LedDisplay> {
             _buildDigit(_number % 10), // Ones digit
           ],
         ),
-        SizedBox(height: 50),
+        //SizedBox(height: 50),
         IconButton(
           icon: Icon(Icons.add),
           onPressed: _incrementNumber,
