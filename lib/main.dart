@@ -59,16 +59,24 @@ class _LedDisplayState extends State<LedDisplay> {
           icon: Icon(Icons.remove),
           onPressed: _decrementNumber,
         ),
-        //SizedBox(height: 50),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            _buildDigit(_number ~/ 10), // Tens digit
-            SizedBox(width: 16),
-            _buildDigit(_number % 10), // Ones digit
-          ],
+        Container(
+          // Wrap LED display with Container
+          padding: EdgeInsets.all(16), // Add padding for space
+          decoration: BoxDecoration(
+            border:
+                Border.all(color: Colors.black, width: 2), // Border properties
+            borderRadius: BorderRadius.circular(8),
+            color: Colors.purple[200],
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              _buildDigit(_number ~/ 10), // Tens digit
+              SizedBox(width: 16),
+              _buildDigit(_number % 10), // Ones digit
+            ],
+          ),
         ),
-        //SizedBox(height: 50),
         IconButton(
           icon: Icon(Icons.add),
           onPressed: _incrementNumber,
@@ -132,8 +140,7 @@ class _LedDisplayState extends State<LedDisplay> {
       [0, 0, 1, 0, 0],
       [0, 1, 1, 1, 0],
     ],
-    // Add patterns for digits 2 through 9 similarly
-    // Patterns for digit 2
+    // Digit 2
     [
       [0, 1, 1, 1, 0],
       [1, 0, 0, 0, 1],
@@ -143,7 +150,7 @@ class _LedDisplayState extends State<LedDisplay> {
       [0, 1, 0, 0, 0],
       [1, 1, 1, 1, 1],
     ],
-    // Patterns for digit 3
+    // Digit 3
     [
       [0, 1, 1, 1, 0],
       [1, 0, 0, 0, 1],
@@ -153,7 +160,7 @@ class _LedDisplayState extends State<LedDisplay> {
       [1, 0, 0, 0, 1],
       [0, 1, 1, 1, 0],
     ],
-    // Patterns for digit 4
+    // Digit 4
     [
       [0, 0, 0, 1, 0],
       [0, 0, 1, 1, 0],
@@ -163,7 +170,7 @@ class _LedDisplayState extends State<LedDisplay> {
       [0, 0, 0, 1, 0],
       [0, 0, 0, 1, 0],
     ],
-    // Patterns for digit 5
+    // Digit 5
     [
       [1, 1, 1, 1, 1],
       [1, 0, 0, 0, 0],
@@ -173,7 +180,7 @@ class _LedDisplayState extends State<LedDisplay> {
       [1, 0, 0, 0, 1],
       [0, 1, 1, 1, 0],
     ],
-    // Patterns for digit 6
+    // Digit 6
     [
       [0, 1, 1, 1, 0],
       [1, 0, 0, 0, 1],
